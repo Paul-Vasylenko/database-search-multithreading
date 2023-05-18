@@ -1,5 +1,3 @@
-import java.sql.Connection;
-
 public class Main {
     public static void main(String[] args) {
         DbConfig smallDb = new DbConfig(1000, "small_db", "Gorgeous Soft Table Incredible Concrete Car");
@@ -7,6 +5,7 @@ public class Main {
         // No threads
 //        sequentialAlgorithm(smallDB, smallDb_search);
 
-        new Sequential().run(largeDb);
+//        new Sequential().run(largeDb);
+        new Parallel(9).run(smallDb);
     }
 }
