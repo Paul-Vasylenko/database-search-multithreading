@@ -8,6 +8,11 @@ public class Parallel {
         this.NUMBER_OF_THREADS = NUMBER_OF_THREADS;
     }
     void run(DbConfig config) {
+        int[] fragmentSizes = getDBPagination(config);
+        
+    }
+
+    private int[] getDBPagination(DbConfig config) {
         int splitSize = config.size / NUMBER_OF_THREADS;
         int remains = config.size % NUMBER_OF_THREADS;
 
@@ -21,5 +26,7 @@ public class Parallel {
         for (int i = 0; i < NUMBER_OF_THREADS; i++) {
             System.out.println(split[i]);
         }
+
+        return split;
     }
 }

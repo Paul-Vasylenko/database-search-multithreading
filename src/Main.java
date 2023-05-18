@@ -6,6 +6,6 @@ public class Main {
 //        sequentialAlgorithm(smallDB, smallDb_search);
 
 //        new Sequential().run(largeDb);
-        new Parallel(9).run(smallDb);
+        new Parallel(5).run(largeDb);
     }
 }
