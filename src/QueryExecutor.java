@@ -1,7 +1,10 @@
+import models.ProductDTO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class QueryExecutor {
     private String db;
@@ -12,18 +15,20 @@ public class QueryExecutor {
     public QueryExecutor(String db) {
         this.db = db;
     }
-    public void executeQuery(String sql) {
+    public ArrayList<ProductDTO> executeQuery(String sql) {
         Connection conn = DbConnector.getConnection(db);
+        ArrayList<ProductDTO> result = new ArrayList<ProductDTO>();
         try (PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                int id = rs.getInt(primaryKey);
-                String name = rs.getString(searchField);
-                String description = rs.getString(descriptionField);
-                System.out.println("Product [id=" + id + ", name=" + name + ", description=" + description + "]");
+                ProductDTO product = new ProductDTO(rs);
+                result.add(product);
             }
+            return result;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return result;
     }
 }
