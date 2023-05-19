@@ -6,10 +6,6 @@ import java.util.ArrayList;
 
 public class QueryExecutor {
     private String db;
-    private String tableName = "products";
-    private String primaryKey = "id";
-    private String searchField = "name";
-    private String descriptionField = "description";
     public QueryExecutor(String db) {
         this.db = db;
     }
