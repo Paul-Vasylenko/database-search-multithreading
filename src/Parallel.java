@@ -56,10 +56,6 @@ public class Parallel {
             split[i]++;
         }
 
-        for (int i = 0; i < NUMBER_OF_THREADS; i++) {
-            System.out.println(split[i]);
-        }
-
         return split;
     }
 }

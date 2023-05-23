@@ -18,4 +18,9 @@ public class ProductDTO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public String toString() {
+        return "id="+id+"name="+name+";description="+description+";";
+    }
 }
